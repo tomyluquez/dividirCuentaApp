@@ -1,0 +1,72 @@
+/* Roots */
+:root {
+    --verdeOscuro: #00474B;
+    --celesteClaro: #C5E4E7;
+    --fondoGris: #F3F8FB
+}
+
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--celesteClaro);
+    color: var(--verdeOscuro);
+}
+
+/* Estilos Contenedores */
+.totalCompleto{
+    width: 90%;
+    height: 100px;
+    background-color: var(--verdeOscuro);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    color: var(--celesteClaro);
+    font-size: 1.5rem;
+    border-radius: 10px;
+}
+
+.total, .totalPersona{
+    width: 90%;
+    height: 200px;
+    background-color: var(--verdeOscuro);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.division{
+    width: 90%;
+    height: auto;
+    background-color: var(--verdeOscuro);
+    color: var(--celesteClaro);
+    margin-top: 2rem;
+}
+
+
+.division td:not(:first-of-type){
+    width: 100%;
+    padding: 0 1.5rem;
+    text-align: end;
+}
+
+.division tr{
+    text-align: center;
+}
+
+/* Estilos individuales */ 
+#total, #totalPersona{
+    font-weight: 700;
+    font-size: 2rem;
+}

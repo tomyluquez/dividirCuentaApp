@@ -1,0 +1,72 @@
+/* Roots */
+:root {
+    --verdeOscuro: #00474B;
+    --celesteClaro: #C5E4E7;
+    --fondoGris: #F3F8FB
+}
+
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--celesteClaro);
+    color: var(--verdeOscuro);
+}
+
+/* Estilos Contenedores */
+
+.cont-inputs{
+    width: 100%;
+    text-align: center;
+}
+
+/* Estilos Individuales */
+h1{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.cantPersonas{
+    margin: 10px 0;
+    width: 90%;
+    height: 30px;
+    text-align: right;
+    background-image: url(/images/icon-person.svg);
+    background-repeat: no-repeat;
+    background-position-x: 8px;
+    background-position-y: center;
+    font-size: 2rem;
+    padding: 0 10px;
+}
+
+button{
+    margin: 40px 0;
+    width: 90%;
+    height: 35px;
+    background-color: var(--verdeOscuro);
+    font-size: 1.5rem;
+    color: #fafafa;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    transition: all .5s ease-in-out;
+}
+
+button:hover{
+   background-color: var(--celesteClaro);
+   box-shadow: 5px 5px grey ;
+}
+
+button:hover span{
+    color: var(--verdeOscuro);
+}
