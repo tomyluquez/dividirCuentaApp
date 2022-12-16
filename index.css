@@ -60,7 +60,7 @@ button{
     border-radius: 10px;
     cursor: pointer;
     position: relative;
-    transition: all .5s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 
 button:hover{
@@ -70,4 +70,17 @@ button:hover{
 
 button:hover span{
     color: var(--verdeOscuro);
+}
+
+/* Media Queries */
+
+@media (min-width: 800px) {
+    .cantPersonas{
+        width: 30%;
+    }
+
+    button{
+        width: 30%;
+    }
+    
 }

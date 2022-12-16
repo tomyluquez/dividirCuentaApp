@@ -90,7 +90,7 @@ body{
 }
 
 .division td{
-    padding: 5px;
+    padding: 8px 5px;
     text-align: start;
 }
 
@@ -118,7 +118,7 @@ button{
     border-radius: 10px;
     cursor: pointer;
     position: relative;
-    transition: all .5s ease-in-out;
+    transition: all .3s ease-in-out;
     font-weight: 700;
 }
 
@@ -130,4 +130,14 @@ button:hover{
 button:hover span{
     color: var(--verdeOscuro);
     font-weight: 700;
+}
+
+@media (min-width: 800px) {
+    .totalCompleto, .division, .cont-rutaPagos{
+        width: 40%;
+    }
+
+    button{
+        width: 20%;
+    }
 }

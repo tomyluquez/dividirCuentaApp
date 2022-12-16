@@ -49,6 +49,7 @@ body{
 h1{
     text-align: center;
     margin-bottom: 30px;
+    width: 25%;
 }
 
 .persona{
@@ -78,16 +79,16 @@ h1{
 }
 
 button{
-    /* margin: 40px 0; */
     width: 45%;
     height: 35px;
+    margin-top: 20px;
     background-color: var(--verdeOscuro);
     font-size: 1.5rem;
     color: #fafafa;
     border-radius: 10px;
     cursor: pointer;
     position: relative;
-    transition: all .5s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 
 button:hover{
@@ -102,4 +103,25 @@ button:hover span{
 .error{
     color: red;
     display: none;
+}
+
+@media (min-width: 800px) {
+    .cont-inputs{
+        display: flex;
+        flex-wrap: wrap;
+        width: 40%;
+    }    
+
+    .persona{
+        width: 40%;
+    }
+
+    .gasto{
+        width: 25%;
+    }
+
+    button{
+        width: 15%;
+        margin-right: 10px;
+    }
 }
