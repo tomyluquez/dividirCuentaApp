@@ -23,6 +23,7 @@ body{
     color: var(--verdeOscuro);
 }
 
+
 /* Estilos Contenedores */
 .totalCompleto{
     width: 90%;
@@ -42,26 +43,38 @@ body{
     height: 200px;
     background-color: var(--verdeOscuro);
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
+
 
 .division{
     width: 90%;
     height: auto;
+    border-radius: 10px;
     background-color: var(--verdeOscuro);
     color: var(--celesteClaro);
     margin-top: 2rem;
+    overflow: hidden;
 }
 
-
-.division td:not(:first-of-type){
-    width: 100%;
-    padding: 0 1.5rem;
-    text-align: end;
+.cont-rutaPagos{
+    width: 90%;
+    height: auto;
+    margin-top: 2rem;
+    border-radius: 10px;
+    background-color: var(--verdeOscuro);
+    color: var(--celesteClaro);
+    padding: 10px;
+    line-height: 25px;
+    font-size: 16px;
+    font-weight: 500;
 }
 
-.division tr{
+.cont-boton{
+    width: 90%;
+    height: 30PX;
+    margin-top: 50px;
     text-align: center;
 }
 
@@ -69,4 +82,52 @@ body{
 #total, #totalPersona{
     font-weight: 700;
     font-size: 2rem;
+}
+
+.division td:not(:first-of-type){
+    width: 100%;
+    text-align: end;
+}
+
+.division td{
+    padding: 5px 1.5rem;
+    text-align: start;
+}
+
+.division tr{
+    text-align: center;
+    text-transform: capitalize;
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+.division td{
+    border-top: 1px solid #fafafa;
+}
+
+.encabezado td{
+    border: none;
+}
+
+button{
+    width: 50%;
+    height: 100%;
+    background-color: var(--verdeOscuro);
+    color: var(--celesteClaro);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    transition: all .5s ease-in-out;
+    font-weight: 700;
+}
+
+button:hover{
+   background-color: var(--celesteClaro);
+   box-shadow: 5px 5px grey ;
+}
+
+button:hover span{
+    color: var(--verdeOscuro);
+    font-weight: 700;
 }

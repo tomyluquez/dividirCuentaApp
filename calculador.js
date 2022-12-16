@@ -1,4 +1,5 @@
 const cantidadPersonas = +localStorage.getItem('cantPersonas')
+const buttonIndex = document.getElementById('buttonIndex')
 window.addEventListener('load', () => {
     const arrayGastos = JSON.parse(localStorage.getItem('personas'))
     
@@ -10,8 +11,12 @@ window.addEventListener('load', () => {
 
     const gastosTotal = gastosIndividuales.reduce((a,b) => a+b)
     generarSpan(gastosTotal)
-    generarCuentasInd(arrayGastos, gastosIndividuales, gastosTotal)
+    generarCuentasInd(arrayGastos, gastosIndividuales)
     
+})
+
+buttonIndex.addEventListener('click', () => {
+    document.location='index.html'
 })
 
 const generarSpan = gastosTotal => {
@@ -21,11 +26,10 @@ const generarSpan = gastosTotal => {
     spanPersona.innerHTML = `$${Math.round(gastosTotal / cantidadPersonas)}`
 }
 
-const generarCuentasInd= (arrayGastos, gastosIndividuales, gastosTotal) => {
-    const cuentas = []
+const generarCuentasInd= (arrayGastos, gastosIndividuales) => {
+    arrayGastos.sort((a,b) => b.gasto - a.gasto)
     const gastosPorPersona = Math.round(gastosIndividuales.reduce((a,b) => a+b) / cantidadPersonas)
     for(let i=0; i<arrayGastos.length; i++){
-        console.log(arrayGastos[i].gasto > gastosPorPersona )
         if(arrayGastos[i].gasto < gastosPorPersona){
             arrayGastos[i]['debe'] = gastosPorPersona - arrayGastos[i].gasto
         } else if (arrayGastos[i].gasto > gastosPorPersona){
@@ -63,5 +67,38 @@ const generarDivision = arrayPersonas => {
             tdRecupera.innerHTML = '$-'
         }
     })
+
+    rutaPagos(arrayPersonas)
+}
+
+const rutaPagos = arrayGastos => {
+    arrayGastos.reverse()
+    const rutaPagos = document.querySelector('.cont-rutaPagos')
+
+    for (let i=0; i<arrayGastos.length; i++){
+        for(let j=i+1; j<arrayGastos.length; j++){
+            if(arrayGastos[i].saldo === 0){
+                const newSpan = document.createElement('span')
+                rutaPagos.appendChild(newSpan)
+                newSpan.innerHTML = `- ${arrayGastos[i].nombre} no tiene que pagarle a nadie<br>`
+            }
+
+            if(arrayGastos[i].debe > 0 && arrayGastos[j].recupera > 0 && arrayGastos[i].debe > arrayGastos[j].recupera){
+                const newSpan = document.createElement('span')
+                rutaPagos.appendChild(newSpan)
+                newSpan.innerHTML = `- ${arrayGastos[i].nombre} tiene que pagarle a ${arrayGastos[j].nombre} $${arrayGastos[j].recupera}<br>`
+                arrayGastos[i].debe -= arrayGastos[j].recupera
+                arrayGastos[j].recupera = 0
+            }
+
+            if(arrayGastos[i].debe > 0 && arrayGastos[j].recupera > 0 && arrayGastos[i].debe <= arrayGastos[j].recupera){
+                const newSpan = document.createElement('span')
+                rutaPagos.appendChild(newSpan)
+                newSpan.innerHTML = `- ${arrayGastos[i].nombre} tiene que pagarle a ${arrayGastos[j].nombre} $${arrayGastos[i].debe}<br>`
+                arrayGastos[j].recupera -= arrayGastos[i].debe
+                arrayGastos[i].debe = 0
+            }
+        }
+    }
 
 }

@@ -45,8 +45,9 @@ h1{
     background-repeat: no-repeat;
     background-position-x: 8px;
     background-position-y: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
     padding: 0 10px;
+    text-align: center;
 }
 
 button{
